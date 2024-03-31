@@ -1,0 +1,6 @@
+Random cool scripts(non competive, so pusheen dont fucking ban me you retard xd)
+
+Room guesser:
+send({e: "games"}); ws.addEventListener("message", e => { let msg = msgpack.decode(new Uint8Array(e.data)); if (msg.e === "games") msg.g.forEach(g => {console.log(g.name + "'s password: " + g.private);});});
+change first slot to ghost: send({e: "powerChange", m: 0, i: 9})
+change second slot to ghost: send({e: "powerChange", m: 1, i: 9})

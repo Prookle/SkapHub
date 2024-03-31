@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" xml:space="preserve">
+	<desc>Created with Fabric.js 3.6.6</desc>
+	<defs>
+	</defs>
+	<g transform="matrix(1 0 0 1 50 50)"  >
+		<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="50" />
+	</g>
+	<g transform="matrix(1 0 0 1 50 50)"  >
+		<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(155,196,196); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="45" />
+	</g>
+	<g transform="translate(50 50) scale(1 1.5)" style=""  >
+		<linearGradient id="SVGID_629" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 1 -40.84 -19.77)"  x1="0" y1="20.565999999999995" x2="81.67236328125" y2="18.983999999999995">
+			<stop offset="0%" style="stop-color:#ff0000;"/>
+			<stop offset="25%" style="stop-color:#ffff00;"/>
+			<stop offset="50%" style="stop-color:#00ff00;"/>
+			<stop offset="75%" style="stop-color:#00ffff;"/>
+			<stop offset="100%" style="stop-color:#0000ff;"/>
+		</linearGradient>
+		<text xml:space="preserve" 
+		font-family="Arial" font-size="35" font-style="normal" font-weight="bold" 
+		style="fill: url(#SVGID_629); fill-rule: nonzero; opacity: 1; white-space: pre;" >
+			<tspan x="-40.84" y="10.99">OwO</tspan>
+		</text>
+	</g>
+</svg>
