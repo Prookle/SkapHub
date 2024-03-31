@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>SkapClient</title>
+
+        <link id="iconLink" rel="shortcut icon" href="assets/logos/skapclientbg.svg" type="image/x-icon">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Righteous&family=Russo%20One&display=swap"
+              rel="stylesheet">
+        
+        <!-- Discord Embed -->
+        <meta content="SkapClient" property="og:title">
+        <meta content="By NKY5223" property="og:description">
+        <meta content="https://nky5223.github.io/SkapClient" property="og:url">
+        <meta content="https://nky5223.github.io/SkapClient/logos/skapclientbg.svg" property="og:image">
+        <meta content="#2080FF" name="theme-color">
+
+        <meta name="google-site-verification" content="PBLtd-8hR_XoqRBqN2SmJgHoP8a4XqZt0WfOjlHgZNs" />
+    </head>
+    <body>
+        <div id="background" hidden></div>
+        <div id="loadingScreen" class="screen active initial">
+            <button id="skipLoading">Skip Loading</button>
+            <h2 id="loading">Loading...</h2>
+            <progress id="loadingBar" max="1" value="0"></progress>
+        </div>
+        <div id="titleScreen" class="screen inactive initial">
+            <h1 id="title">SkapClient</h1>
+            <h2 id="subtitle">
+                <small>Note: this version is not very complete. Expect unfinished features and bugs. In other news:</small><br>
+                Try out <a href="https://premiering.github.io/SkapNightly" target="_blank" rel="noopener noreferrer external">
+                    skap-nightly
+                </a>: A QoL fork of SkapClient<br>
+            </h2>
+            <noscript>This site is mostly JavaScript and will not work without it enabled.</noscript>
+            <form action="javascript:void(0)" id="loginForm">
+                <label for="username">Username:<input type="text" name="username" id="username"></label>
+                <label for="password">Password:<input type="password" name="password" id="password"></label>
+                <button id="loginBtn">Login</button>
+                <button id="registerBtn">Register</button>
+                <span id="loginMsg1" hidden>OwO</span>
+                <button id="guestBtn">Play as Guest</button>
+                <span id="recaptchaMsg">This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                    <a href="https://policies.google.com/terms">Terms of Service</a> apply.</span>
+            </form>
+            <div id="logoutDiv" hidden>
+                <span id="loginMsg2" hidden>UwU</span>
+                <button id="changingRoomBtn">Changing Room</button>
+                <button id="browseBtn">Browse</button>
+                <button id="createGameMenuBtn">Create</button>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </div>
+        <div id="changingRoom" class="screen inactive initial">
+            <button class="cornerBtn left top back" id="changingRoomBackBtn" title="Back"></button>
+            <div id="playerPreview">
+                <input id="playerBody" type="color" >
+                <select id="playerHat" data-hat="cowboy"></select>
+            </div>
+        </div>
+        <div id="gameList" class="screen inactive initial">
+            <button class="cornerBtn left top back" id="gameListBackBtn" title="Back"></button>
+            <button class="cornerBtn right top refresh" id="gameListRefreshBtn" title="Refresh"></button>
+            <button class="customGame">
+                <span class="cgName">TEST_NAME</span>
+                <div class="row">
+                    <span class="cgPlayers">Players: TEST_PLAYERS / TEST_CAPACITY</span>
+                    <span class="cgMap">TEST_MAP by TEST_CREATOR</span>
+                </div>
+                <div class="row">
+                    <span class="cgUUID">UUID: TEST_UUID</span>
+                    <span class="cgPassword">Password: TEST_PASSWORD</span>
+                </div>
+            </button>
+        </div>
+        <div id="createGameMenu" class="screen inactive initial">
+            <button class="cornerBtn left top back" id="gameListBackBtn" title="Back"></button>
+
+            <h2>Create Custom Game</h2>
+
+            <label for="createGameFile">
+                <span id="createGameFileName"></span>
+                <input type="file" accept="application/json" id="createGameFile">
+            </label>
+
+            <input type="text" id="createGameName" placeholder="'s custom game">
+            <input type="text" id="createGamePassword" placeholder="Password (leave blank for no password)" />
+
+            <label for="createGamePerms">Perms: <input type="checkbox" id="createGamePerms" checked></label>
+            
+            <button id="createGameBtn"></button>
+        </div>
+        <div id="gameDiv" class="screen inactive initial">
+            <canvas id="canvas">canvas unsupported. no idea how you didn't crash</canvas>
+            <div id="HUD">
+                <ul id="playerList"></ul>
+                <div id="fuelBar"></div>
+                <div id="chatWrapper">
+                    <div id="chatDiv"></div>
+                    <input type="text" id="chatInput">
+                    <span id="charsLeft" data-chars="200"></span>
+                    <button id="chatSendBtn" title="Send Message">></button>
+                </div>
+                <div id="powers">
+                    <div class="powerWrapper" id="powerWrapper1" hidden>
+                        <div class="powerClipping">
+                            <ul class="powerTray" id="powerTray1"></ul>
+                        </div>
+                        <div class="powerSlot" id="powerSlot1"></div>
+                    </div>
+                    <div class="powerWrapper" id="powerWrapper2" hidden>
+                        <div class="powerClipping">
+                            <ul class="powerTray" id="powerTray2"></ul>
+                        </div>
+                        <div class="powerSlot" id="powerSlot2"></div>
+                    </div>
+                </div>
+                <button id="settingsBtn"></button>
+                <div id="debug" hidden>
+                    <span class="label">Pos</span>
+                    <span class="label">x:</span><span id="posX">0.00</span>
+                    <span class="label">y:</span><span id="posY">0.00</span>
+                    <span></span><span></span>
+
+                    <span class="label">Vel</span>
+                    <span class="label">x:</span><span id="velX">0.00</span>
+                    <span class="label">y:</span><span id="velY">0.00</span>
+                    <span class="label">Vel:</span><span id="vel">0.00</span>
+
+                    <span class="label">Aim</span>
+                    <span class="label">x:</span><span id="aimX">0.00</span>
+                    <span class="label">y:</span><span id="aimY">0.00</span>
+                    <span class="label">Aim:</span><span id="aim">0.00</span>
+
+                    <span class="label">MSPF</span>
+                    <span class="label">μ:</span><span id="mspfMean">16.67</span>
+                    <span class="label">σ:</span><span id="mspfStdDev">0.00</span>
+                    <span class="label">FPS:</span><span id="fps">60</span>
+
+                    <span class="label">MSPT</span>
+                    <span class="label">μ:</span><span id="msptMean">33.33</span>
+                    <span class="label">σ:</span><span id="msptStdDev">0.00</span>
+                    <span class="label">TPS:</span><span id="tps">30</span>
+
+                    <span class="label">WS</span>
+                    <span class="label">⭳:</span><span id="wsReceive">0</span>
+                    <span class="label">⭱:</span><span id="wsSend">0</span>
+                </div>
+            </div>
+        </div>
+        <div id="settings" hidden>
+            <button class="cornerBtn right top back" id="settingsBackBtn" title="Back"></button>
+            <h2 id="settingsTitle">Settings</h2>
+
+            <div id="controlSettings">
+                <h3>Controls</h3>
+            </div>
+            <div id="powerpresetSettings">
+                <h3>Power Presets</h3>
+                <div id="powerPresets"></div>
+                <button id="addPowerPreset"></button>
+            </div>
+
+            <dialog id="controlOverlay">
+                <div id="controlMenu">
+                    Press any key or mouse button.
+                </div>
+            </dialog>
+
+            <footer>
+                <p style="margin-top: 100em;">me when the the when me whtne the</p>
+            </footer>
+        </div>
+        <script src="./js/msgpack.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ld2wFMaAAAAAIL8fjR5Bwg6kn3fP2t-b9NFoK_R"></script>
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
