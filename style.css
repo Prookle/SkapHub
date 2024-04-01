@@ -34,6 +34,10 @@ body {
 	--offsetX: 0;
 	--offsetY: 0;
 
+	/* Should be integers to loop */
+	--offsetXSpeed: 1;
+	--offsetYSpeed: -2;
+
 	--offsetXLen: calc(var(--offsetX) * var(--repeat));
 	--offsetYLen: calc(var(--offsetY) * var(--repeat));
 
@@ -71,8 +75,8 @@ body {
 		--offsetY: 0;
 	}
 	to {
-		--offsetX: 1;
-		--offsetY: -2;
+		--offsetX: var(--offsetXSpeed);
+		--offsetY: var(--offsetYSpeed);
 	}
 }
 
