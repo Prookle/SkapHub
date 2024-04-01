@@ -24,6 +24,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 
+	/* PARAMETERS BEGIN */
 	--color: #ffffff;
 	--width: .1em;
 	--repeat: 1em;
@@ -31,12 +32,13 @@ body {
 	--angle1: 30deg;
 	--angle2: calc(var(--angle1) + 90deg);
 
-	--offsetX: 0;
-	--offsetY: 0;
-
 	/* Should be integers to loop */
 	--offsetXSpeed: 1;
 	--offsetYSpeed: -2;
+	/* PARAMETERS END */
+
+	--offsetX: 0;
+	--offsetY: 0;
 
 	--offsetXLen: calc(var(--offsetX) * var(--repeat));
 	--offsetYLen: calc(var(--offsetY) * var(--repeat));
