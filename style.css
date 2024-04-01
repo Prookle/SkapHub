@@ -1,0 +1,195 @@
+html {
+	background: #101010;
+	height: 100%;
+	display: grid;
+	place-items: center;
+}
+
+body {
+	margin: 0;
+	height: 75%;
+	display: grid;
+	justify-content: space-evenly;
+	place-items: center;
+	grid-template-areas: 
+		"title" 
+		"links"
+		"nothing"
+	;
+	grid-auto-rows: 5em auto 5em;
+}
+
+.background {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+
+	--color: #ffffff;
+	--width: .1em;
+	--repeat: 1em;
+
+	--angle1: 30deg;
+	--angle2: calc(var(--angle1) + 90deg);
+
+	--offsetX: 0;
+	--offsetY: 0;
+
+	--offsetXLen: calc(var(--offsetX) * var(--repeat));
+	--offsetYLen: calc(var(--offsetY) * var(--repeat));
+
+	--stopX0: calc(var(--offsetXLen) + 0px);
+	--stopX1: calc(var(--offsetXLen) + var(--width));
+	--stopX2: calc(var(--offsetXLen) + var(--repeat));
+
+	--stopY0: calc(var(--offsetYLen) + 0px);
+	--stopY1: calc(var(--offsetYLen) + var(--width));
+	--stopY2: calc(var(--offsetYLen) + var(--repeat));
+	
+
+	background-image: 
+		repeating-linear-gradient(var(--angle1), var(--color) var(--stopX0) var(--stopX1), transparent var(--stopX1) var(--stopX2)),
+		repeating-linear-gradient(var(--angle2), var(--color) var(--stopY0) var(--stopY1), transparent var(--stopY1) var(--stopY2))
+	;
+	opacity: .15;
+	z-index: -99;
+
+	animation: slide 2s linear 0s infinite forwards;
+}
+@property --offsetX {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 0;
+}
+@property --offsetY {
+	syntax: "<number>";
+	inherits: false;
+	initial-value: 0;
+}
+@keyframes slide {
+	from {
+		--offsetX: 0;
+		--offsetY: 0;
+	}
+	to {
+		--offsetX: 1;
+		--offsetY: -2;
+	}
+}
+
+.links {
+	display: grid;
+	justify-content: space-evenly;
+	place-items: center;
+	grid-template-areas: 
+		"zummies skapclient" 
+		"skapio skapnightly"
+	;
+	gap: 5em 10em;
+}
+
+.title {
+	display: block;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 4em;
+	grid-area: title;
+	animation: rainbow 5s linear 0s infinite forwards;
+}
+@keyframes rainbow {
+	0%, 100% {
+		color: hsl(0, 100%, 75%);
+	}
+	16.6666% {
+		color: hsl(60, 75%, 75%);
+	}
+	33.3333% {
+		color: hsl(120, 100%, 75%);
+	}
+	50% {
+		color: hsl(180, 75%, 75%);
+	}
+	66.6666% {
+		color: hsl(240, 100%, 75%);
+	}
+	53.3333% {
+		color: hsl(300, 75%, 75%);
+	}
+}
+
+.credits {
+	position: absolute;
+	font-size: 2em;
+	right: 1.5rem;
+	top: 1.5rem;
+	color: #ffffff;
+}
+
+a {
+	--color: #2080ff;
+	--transcolor: color-mix(in srgb, var(--color) 50%, transparent 50%);
+	--darkcolor: color-mix(in srgb, var(--color) 50%, black 50%);
+	all: unset;
+	display: block;
+	cursor: pointer;
+	font-size: 1.25em;
+	width: 100%;
+	text-align: center;
+	transition: box-shadow .1s;
+	border-radius: .5em;
+	box-shadow: 0px 0px 1em var(--transcolor);
+}
+a:hover {
+	box-shadow: 0px 0px 0 var(--transcolor);
+}
+
+.hover {
+	all: unset;
+	display: block;
+	padding: 1em;
+	background: var(--darkcolor);
+	border: .1em solid var(--color);
+	color: #ffffff;
+	border-radius: .5em;
+	font-family: system-ui;
+	text-transform: uppercase;
+	transition: border-color .1s, transform .1s;
+	box-shadow: inset 0 0 1em #00000020;
+}
+a:hover .hover {
+	border-color: #ffffff;
+	transform: translateY(-.5em);
+}
+
+/* .particles {
+	position: absolute;
+	width: 100%;
+	height: 20rem;
+	left: 0;
+	bottom: 0;
+	opacity: 0.5;
+}
+.particle {
+	--x: 0%;
+	--y: 0%;
+	--size: 100px;
+	--initial-angle: 0deg;
+	--time: 5s;
+	--color: #ffffff;
+
+	position: absolute;
+	mix-blend-mode: screen;
+
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+	height: var(--size);
+
+	background-color: var(--color);
+	transform: translate(-50%, -50%) rotate(calc(var(--initial-angle) + var(--angle)));
+
+	animation: spin var(--time) linear 0s infinite forwards;
+}
+@keyframes spin {
+	from { --angle: 0turn; }
+	to { --angle: 1turn; }
+} */
