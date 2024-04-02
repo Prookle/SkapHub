@@ -114,6 +114,30 @@ body {
 	background-color: #ffffff40;
 }
 
+.music {
+	all: unset;
+	display: block;
+
+	position: absolute;
+	font-size: 2em;
+	left: 1.5rem;
+	top: 7.5rem;
+	color: #ffffff;
+	padding: .4em 1em;
+	font-family: system-ui;
+
+	cursor: pointer;
+
+	border: .1em solid #ffffff;
+	border-radius: .5em;
+
+	background-color: transparent;
+	transition: background-color .1s;
+}
+.music:hover {
+	background-color: #ffffff40;
+}
+
 .title {
 	display: block;
 	font-family: monospace;
