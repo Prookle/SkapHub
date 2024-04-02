@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
 	<path fill="#ffffff" stroke="none" d="
-		M 10 75
-		L 90 75
-		L 90 85
-		L 10 85
+		M 10 80
+		L 90 80
+		L 90 90
+		L 10 90
 		Z
-		M 40 10
-		L 60 10
-		L 60 50
-		L 70 50
-		L 50 70
-		L 30 50
-		L 40 50
-		L 40 10
+		M 40 15
+		L 60 15
+		L 60 55
+		L 70 55
+		L 50 75
+		L 30 55
+		L 40 55
+		L 40 15
 		Z
 	" />
 </svg>
