@@ -14,7 +14,7 @@ body {
 	grid-template-areas: 
 		"title" 
 		"links"
-		"nothing"
+		"discord"
 	;
 	grid-auto-rows: 5em auto 5em;
 }
