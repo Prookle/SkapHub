@@ -16,6 +16,27 @@ body {
 	font-size: 3rem;
 }
 
+.home {
+	all: unset;
+	display: block;
+
+	position: absolute;
+	font-size: 1.5em;
+	left: 1.5rem;
+	top: 1.5rem;
+	color: #ffffff;
+	padding: .4em 1em;
+	font-family: system-ui;
+
+	cursor: pointer;
+
+	border: .1em solid #ffffff;
+	border-radius: .5em;
+
+	background-color: transparent;
+	transition: background-color .1s;
+}
+
 .map {
 	/* background: #ff000040; */
 	--color: #ff00ff;
