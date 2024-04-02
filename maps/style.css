@@ -1,0 +1,112 @@
+html {
+	background: #101010;
+	color: #ffffff;
+}
+
+body {
+	margin: 0;
+	display: grid;
+	justify-content: space-evenly;
+	place-items: center;
+	gap: 1rem;
+}
+
+.title {
+	font-family: monospace;
+	font-size: 3rem;
+}
+
+.map {
+	/* background: #ff000040; */
+	--color: #ff00ff;
+	display: grid;
+	grid-template-areas: "all";
+	align-items: center;
+	
+	background: color-mix(in srgb, var(--color) 25%, transparent 75%);
+	border: .5rem solid color-mix(in srgb, var(--color) 75%, #808080 25%);;
+	border-radius: 1rem;
+	overflow: hidden;
+	position: relative;
+}
+.map > * {
+	grid-area: all;
+}
+
+.preview {
+	pointer-events: none;
+	user-select: none;
+	position: absolute;
+	width: 75%;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0.75;
+	mask-image: linear-gradient(to right,
+		rgba(0 0 0 / 1.00000) 000.00%,
+		rgba(0 0 0 / 0.92160) 004.00%,
+		rgba(0 0 0 / 0.84640) 008.00%,
+		rgba(0 0 0 / 0.77440) 012.00%,
+		rgba(0 0 0 / 0.70560) 016.00%,
+		rgba(0 0 0 / 0.64000) 020.00%,
+		rgba(0 0 0 / 0.57760) 024.00%,
+		rgba(0 0 0 / 0.51840) 028.00%,
+		rgba(0 0 0 / 0.46240) 032.00%,
+		rgba(0 0 0 / 0.40960) 036.00%,
+		rgba(0 0 0 / 0.36000) 040.00%,
+		rgba(0 0 0 / 0.31360) 044.00%,
+		rgba(0 0 0 / 0.27040) 048.00%,
+		rgba(0 0 0 / 0.23040) 052.00%,
+		rgba(0 0 0 / 0.19360) 056.00%,
+		rgba(0 0 0 / 0.16000) 060.00%,
+		rgba(0 0 0 / 0.12960) 064.00%,
+		rgba(0 0 0 / 0.10240) 068.00%,
+		rgba(0 0 0 / 0.07840) 072.00%,
+		rgba(0 0 0 / 0.05760) 076.00%,
+		rgba(0 0 0 / 0.04000) 080.00%,
+		rgba(0 0 0 / 0.02560) 084.00%,
+		rgba(0 0 0 / 0.01440) 088.00%,
+		rgba(0 0 0 / 0.00640) 092.00%,
+		rgba(0 0 0 / 0.00160) 096.00%,
+		rgba(0 0 0 / 0.00000) 100.00%
+	);
+}
+.preview > img {
+	height: 100%;
+}
+.info {
+	display: grid;
+	/* background: #00ff0040; */
+
+	grid-template-areas: 
+		"name download"
+		"desc download"
+	;
+	align-items: center;
+	gap: 0 3rem;
+	padding: 1rem 5rem 1rem 10rem;
+	z-index: 99999;
+
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.name {
+	grid-area: name;
+	font-size: 3rem;
+	margin: 0;
+}
+.description {
+	grid-area: desc;
+	margin: 0;
+}
+.download {
+	grid-area: download;
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	background: #202020;
+	user-select: none;
+	font-size: 0;
+}
+.download::after {
+	content: "download icon here";
+	font-size: 1rem;
+}

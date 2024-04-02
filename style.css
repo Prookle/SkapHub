@@ -82,15 +82,36 @@ body {
 	}
 }
 
-.links {
-	display: grid;
-	justify-content: space-evenly;
-	place-items: center;
-	grid-template-areas: 
-		"zummies skapclient" 
-		"skapio skapnightly"
-	;
-	gap: 5em 10em;
+.credits {
+	position: absolute;
+	font-size: 2em;
+	right: 1.5rem;
+	top: 1.5rem;
+	color: #ffffff;
+}
+
+.maps {
+	all: unset;
+	display: block;
+
+	position: absolute;
+	font-size: 2em;
+	left: 1.5rem;
+	top: 1.5rem;
+	color: #ffffff;
+	padding: .4em 1em;
+	font-family: system-ui;
+
+	cursor: pointer;
+
+	border: .1em solid #ffffff;
+	border-radius: .5em;
+
+	background-color: transparent;
+	transition: background-color .1s;
+}
+.maps:hover {
+	background-color: #ffffff40;
 }
 
 .title {
@@ -122,15 +143,19 @@ body {
 	}
 }
 
-.credits {
-	position: absolute;
-	font-size: 2em;
-	right: 1.5rem;
-	top: 1.5rem;
-	color: #ffffff;
+
+.links {
+	display: grid;
+	justify-content: space-evenly;
+	place-items: center;
+	grid-template-areas: 
+		"zummies skapclient" 
+		"skapio skapnightly"
+	;
+	gap: 5em 10em;
 }
 
-a {
+.links a {
 	--color: #2080ff;
 	--transcolor: color-mix(in srgb, var(--color) 50%, transparent 50%);
 	--darkcolor: color-mix(in srgb, var(--color) 50%, black 50%);
@@ -144,11 +169,11 @@ a {
 	border-radius: .5em;
 	box-shadow: 0px 0px 1em var(--transcolor);
 }
-a:hover {
+.links a:hover {
 	box-shadow: 0px 0px 0 var(--transcolor);
 }
 
-.hover {
+.links .hover {
 	all: unset;
 	display: block;
 	padding: 1em;
@@ -161,41 +186,7 @@ a:hover {
 	transition: border-color .1s, transform .1s;
 	box-shadow: inset 0 0 1em #00000020;
 }
-a:hover .hover {
+.links a:hover .hover {
 	border-color: #ffffff;
 	transform: translateY(-.5em);
 }
-
-/* .particles {
-	position: absolute;
-	width: 100%;
-	height: 20rem;
-	left: 0;
-	bottom: 0;
-	opacity: 0.5;
-}
-.particle {
-	--x: 0%;
-	--y: 0%;
-	--size: 100px;
-	--initial-angle: 0deg;
-	--time: 5s;
-	--color: #ffffff;
-
-	position: absolute;
-	mix-blend-mode: screen;
-
-	left: var(--x);
-	top: var(--y);
-	width: var(--size);
-	height: var(--size);
-
-	background-color: var(--color);
-	transform: translate(-50%, -50%) rotate(calc(var(--initial-angle) + var(--angle)));
-
-	animation: spin var(--time) linear 0s infinite forwards;
-}
-@keyframes spin {
-	from { --angle: 0turn; }
-	to { --angle: 1turn; }
-} */
