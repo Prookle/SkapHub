@@ -83,7 +83,7 @@ body {
 	;
 	align-items: center;
 	gap: 0 3rem;
-	padding: 1rem 5rem 1rem 10rem;
+	padding: 1rem 3rem 1rem 10rem;
 	z-index: 99999;
 
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -100,13 +100,18 @@ body {
 .download {
 	grid-area: download;
 	display: block;
-	width: 5rem;
-	height: 5rem;
-	background: #202020;
+	width: 3rem;
+	height: 3rem;
+	/* background: #202020; */
 	user-select: none;
 	font-size: 0;
 }
 .download::after {
-	content: "download icon here";
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-image: url("./download.svg");
+	background-size: cover;
 	font-size: 1rem;
 }
