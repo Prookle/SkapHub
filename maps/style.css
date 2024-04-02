@@ -59,7 +59,8 @@ body {
 	pointer-events: none;
 	user-select: none;
 	position: absolute;
-	width: 75%;
+	max-width: 75%;
+	width: fit-content;
 	height: 100%;
 	overflow: hidden;
 	opacity: 0.75;
@@ -100,12 +101,12 @@ body {
 	/* background: #00ff0040; */
 
 	grid-template-areas: 
-		"name download"
-		"desc download"
+		"name name name download"
+		"desc desc desc download"
+		"auth lvls diff download"
 	;
-	grid-auto-columns: auto min-content;
+	column-gap: 3rem;
 	align-items: center;
-	gap: 0 3rem;
 	padding: 1rem 3rem 1rem 10rem;
 	z-index: 99999;
 
@@ -119,7 +120,42 @@ body {
 .description {
 	grid-area: desc;
 	margin: 0;
+	margin-bottom: 0.25rem;
 }
+
+.author::before,
+.levels::before,
+.difficulty::before {
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: -12.5%;
+	margin-right: .25em;
+	background-size: cover;
+}
+.author::before { 
+	background-image: url("./icons/author.svg");
+}
+.levels::before {
+	background-image: url("./icons/levels.svg");
+}
+
+.difficulty::before {
+	width: 2em;
+	height: 1em;
+}
+.difficulty[data-difficulty="easy"]::after { content: "Easy"; }
+.difficulty[data-difficulty="medium"]::after { content: "Medium"; }
+.difficulty[data-difficulty="hard"]::after { content: "Hard"; }
+.difficulty[data-difficulty="very_hard"]::after { content: "Very Hard"; }
+.difficulty[data-difficulty="unrated"]::after { content: "Unrated"; }
+.difficulty[data-difficulty="easy"]::before { background-image: url("./icons/difficulty/easy.svg"); }
+.difficulty[data-difficulty="medium"]::before { background-image: url("./icons/difficulty/medium.svg"); }
+.difficulty[data-difficulty="hard"]::before { background-image: url("./icons/difficulty/hard.svg"); }
+.difficulty[data-difficulty="very_hard"]::before { background-image: url("./icons/difficulty/very_hard.svg"); }
+.difficulty[data-difficulty="unrated"]::before { background-image: url("./icons/difficulty/unrated.svg"); }
+
 .download {
 	grid-area: download;
 	display: block;
@@ -134,10 +170,10 @@ body {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-image: url("./download-0.svg");
+	background-image: url("./icons/download-0.svg");
 	background-size: cover;
 	font-size: 1rem;
 }
 .download:hover::after {
-	background-image: url("./download-1.svg");
+	background-image: url("./icons/download-1.svg");
 }
