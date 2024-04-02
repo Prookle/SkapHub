@@ -14,7 +14,7 @@ body {
 	grid-template-areas: 
 		"title" 
 		"links"
-		"nothing"
+		"discord"
 	;
 	grid-auto-rows: 5em auto 5em;
 }
@@ -189,4 +189,20 @@ body {
 .links a:hover .hover {
 	border-color: #ffffff;
 	transform: translateY(-.5em);
+}
+
+.discord {
+	display: flex;
+	flex-direction: row;
+	gap: 5em;
+}
+.discord > a {
+	all: unset;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	color: #ffffff;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	place-items: center;
+	gap: .1em;
 }
